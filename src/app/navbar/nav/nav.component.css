@@ -1,0 +1,93 @@
+nav {
+  background-color: #ED6C44;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.26);
+
+}
+
+.container-fluid {
+  margin: 0 15px;
+}
+
+
+.navbar-default {
+  border: none;
+}
+
+
+.example-header-image {
+  background-image: url('../../../assets/images/profile-avatar.png');
+  background-size: cover;
+  margin-top: 8px;
+  border: none;
+  background-color: #ED6C44;
+}
+
+button.example-header-image {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+
+}
+
+nav ul li a {
+  height: 55px;
+  line-height: 28px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+
+.navbar-brand {
+  color: #ED6C44;
+  transition: 0.3s;
+}
+
+
+
+
+
+nav ul li a:hover, .navbar-brand:hover  {
+  color: #2b2b2b;
+}
+
+
+.active {
+  background-color: rgba(194, 43, 0, 1);
+}
+
+
+
+
+
+/* Collapsed when in mobile*/
+
+.navbar-default .navbar-nav > .active > a {
+  background-color: transparent;
+}
+
+.navbar-form {
+  border: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+button.navbar-toggle.collapsed {
+  margin-top: 15px;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+
+
+
+
+<div class="custom-background">
+ <a href="https://equilab.horse/">  <img src="../../../assets/images/EquilabNamn.png" style="width: 106px; height: 44px; margin: 10px;" > </a>
+  <div align=center class="container">
+
+
+
+<div *ngIf="error" class="alert alert-warning" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{error}}
+</div>
+
+<md-card class="example-card" [@slideUp]="'true'">
+  <h2 *ngIf="!isLoading" style="font-size: 22px;">Log in to your account</h2>
+  <h2 *ngIf="isLoading" style="font-size: 22px;">Logging in..</h2>
+  <br>
+
+  <form *ngIf="!isLoading" class="example-form" #signInForm="ngForm" (ngSubmit)="loginWithEmail(signInForm)">
+    <md-input-container class="example-full-width">
+      <input md-input placeholder="email@gmail.com" type="email" name="email" ngModel required>
+    </md-input-container>
+
+    <br>
+
+    <md-input-container class="example-full-width">
+      <input md-input placeholder="Password" type="password" name="password" ngModel required>
+    </md-input-container>
+    <br>
+    <div class="text-center">
+      <button md-raised-button  type="submit">Log in</button>
+
+      <button md-raised-button  style="margin-top: 10px;" (click)="loginWithGoogle()">Log in with Google</button>
+      <p *ngIf="error" class="error-text">{{errorMessage}}</p>
+    </div>
+  <!--  <div class="text-center newAccount">
+      <a  [routerLink]="['/register']">Skapa ett konto</a>
+    </div> -->
+  </form>
+
+  <div *ngIf="isLoading" class="text-center">
+    <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+  </div>
+
+</md-card>
+
+</div>
+
+</div>
+
+
