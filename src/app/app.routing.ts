@@ -11,7 +11,7 @@ const APP_ROUTES: Routes = [
   { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'overview', component: OverviewPageComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutPageComponent, canActivate: [AuthGuard]},
-  { path: 'home', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
 
 ];
 
