@@ -14,7 +14,6 @@ import {ProfilePageComponent} from './pages/profile-page/profile-page.component'
 import {AboutPageComponent} from './pages/about-page/about-page.component';
 import {NavComponent} from './navbar/nav/nav.component';
 import {SideNavComponent} from './navbar/sidenav/sidenav.component';
-import {horsesService} from './pages/home-page/horsesService'
 import {OverviewPageComponent} from './pages/overview-page/overview-page.component'
 import { ChartsModule } from 'ng2-charts';
 
@@ -52,6 +51,6 @@ export const firebaseConfig = {
 
   ],
   bootstrap: [ AppComponent ],
-  providers: [AF,AuthGuard,horsesService,]
+  providers: [AF,AuthGuard,]
 })
 export class AppModule {}
