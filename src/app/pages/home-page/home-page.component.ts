@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {fadeInAnimation} from "../../shared/animations/fadeIn.animation";
 import {AngularFire,FirebaseListObservable} from "angularfire2";
-import {AF} from '../../services/af';
 
 
 @Component({
