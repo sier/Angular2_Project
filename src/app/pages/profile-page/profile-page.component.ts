@@ -11,16 +11,9 @@ import {AF} from '../../services/af';
 
 })
 
-export class ProfilePageComponent implements OnInit{
+export class ProfilePageComponent {
 
-  user: any;
-
-  constructor(private authService: AF){}
-
-  ngOnInit(){
-    this.user = this.authService.user;
-  }
-
+ 
 
 
 }
