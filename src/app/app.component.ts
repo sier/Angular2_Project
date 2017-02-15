@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
         else {
           console.log("Successfully Logged in.");
           this.isLoggedIn = true;
-          this.router.navigate(['/home']);
+          
         }
       });
 
