@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {fadeInAnimation} from "../../shared/animations/fadeIn.animation";
-import {AF} from '../../services/af';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
