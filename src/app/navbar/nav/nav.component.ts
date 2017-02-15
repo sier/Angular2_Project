@@ -21,6 +21,9 @@ export class NavComponent implements OnDestroy {
  
   }
 
+ isAuth() {
+    return this.isAuthenticated;
+  }
 
   onSignOut() {
     this.authService.logout();
