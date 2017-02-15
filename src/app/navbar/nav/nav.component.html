@@ -1,4 +1,4 @@
-<nav *ngIf="isAuthenticated" class="navbar navbar-default navbar-fixed-top">
+<nav *ngIf="isAuth()" class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -21,9 +21,9 @@
 
       <!-- Righ Side navbar goes here -->
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!isAuthenticated" [routerLink]="['login']"><a><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li *ngIf="isAuthenticated"><a (click)="onSignOut()"><span class="glyphicon glyphicon-lock"></span> Logout</a></li>
-        <li *ngIf="isAuthenticated" [routerLink]="['profile']"><button md-card-avatar class="example-header-image"></button></li>
+        <li *ngIf="!isAuth()" [routerLink]="['login']"><a><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="isAuth()"><a (click)="onSignOut()"><span class="glyphicon glyphicon-lock"></span> Logout</a></li>
+        <li *ngIf="isAuth()" [routerLink]="['profile']"><button md-card-avatar class="example-header-image"></button></li>
       </ul>
     </div>
 
