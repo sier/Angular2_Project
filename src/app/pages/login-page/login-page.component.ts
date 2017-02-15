@@ -27,7 +27,7 @@ export class LoginPageComponent {
     this.afService.loginWithEmail(form.value.email, form.value.password).then((data) => {
       console.log("SIGNED IN WITH EMAIL",data);
       this.isLoading = false;
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
     }).catch((error: any) => {
       if (error) {
         this.isLoading = false;
