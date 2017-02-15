@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AF} from "../../services/af";
+import {Subscription} from "rxjs/Rx";
 
 @Component({
   selector: 'app-sidenav',
@@ -7,15 +8,23 @@ import {AF} from "../../services/af";
   styleUrls: ['sidenav.component.css']
 })
 
-export class SideNavComponent implements OnInit {
+export class SideNavComponent implements OnDestroy {
   isAuthenticated = false;
+  private subscription: Subscription;
+  constructor(private authService: AF) {
+  
+    this.subscription = this.authService.isAuthenticated().subscribe(
+      authStatus => this.isAuthenticated = authStatus
+    );
+  
+  }
 
-  constructor(private authService: AF) {}
+ isAuth() {
+    return this.isAuthenticated;
+  }
 
-  ngOnInit() {
-    this.authService.authObservable.subscribe((result: boolean) => {
-      this.isAuthenticated = result;
-    });
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
