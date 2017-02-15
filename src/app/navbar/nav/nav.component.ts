@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AF} from "../../services/af";
-
+import {Subscription} from "rxjs/Rx";
 import * as firebase from 'firebase';
 
 
@@ -10,19 +10,23 @@ import * as firebase from 'firebase';
   styleUrls: ['nav.component.css']
 })
 
-export class NavComponent implements OnInit {
+export class NavComponent implements OnDestroy {
   isAuthenticated = false;
-
-  constructor(private authService: AF) {}
-
-  ngOnInit() {
-    // used to show Login or Logout button
-    this.authService.authObservable.subscribe((result: boolean) => {
-      this.isAuthenticated = result;
-    });
+  private subscription: Subscription;
+  constructor(private authService: AF) {
+    
+   this.subscription = this.authService.isAuthenticated().subscribe(
+      authStatus => this.isAuthenticated = authStatus
+    );
+ 
   }
+
 
   onSignOut() {
     this.authService.logout();
+  }
+
+ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
