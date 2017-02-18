@@ -10,12 +10,17 @@ import {AngularFire,FirebaseListObservable} from "angularfire2";
   animations: [fadeInAnimation]
 })
 export class HomePageComponent {
-  horses: FirebaseListObservable<any[]>; //Detta är vad som används just nu för att visa testvärdena då det inte finns några användare kopplade till tabellerna i testdatabasen
+  userinfo: FirebaseListObservable<any[]>; //Detta är vad som används just nu för att visa testvärdena då det inte finns några användare kopplade till tabellerna i testdatabasen
 
   constructor(private angularfire: AngularFire){
 
 
-    this.horses = angularfire.database.list('/v1/horses/'); //Detta är vad som används just nu för att visa testvärdena då det inte finns några användare kopplade till tabellerna i testdatabasen
+    this.userinfo = angularfire.database.list('/v1/userinfo/',{
+      query: {
+        orderByChild: 'id' ,
+        equalTo: '25sZYMr8t9ZZCMtoaCq7NffdIP93'
+      }
+    }); //Detta är vad som används just nu för att visa testvärdena då det inte finns några användare kopplade till tabellerna i testdatabasen
 
 
   }
