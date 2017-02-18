@@ -7,7 +7,7 @@
 <div class="col-md-12" [@fadeIn]="'true'">
 
 <div style="margin: 100px;" [@fadeIn]="'true'">
-  <h1> TEST QUERIES | TESTVALUES(NAME,WEIGHT,GENDER)FROM USERINFO: </h1>
+  <h1> TEST QUERY (HÅRDKODAT ID) | TESTVALUES(NAME,WEIGHT,GENDER)FROM USERINFO: </h1>
 <ul style="margin-top: 50px;" >
   <li style="float:left; width:180px;" *ngFor="let item of userinfo | async" [@fadeIn]="'true'">{{item.first_name}} {{item.weight}}kg {{item.gender}} </li>
 
