@@ -10,8 +10,9 @@ import {AngularFire,FirebaseListObservable} from "angularfire2";
   animations: [fadeInAnimation]
 })
 export class HomePageComponent {
-  userinfo: FirebaseListObservable<any[]>; //Detta är vad som används just nu för att visa testvärdena då det inte finns några användare kopplade till tabellerna i testdatabasen
-
+  userinfo: FirebaseListObservable<any[]>; 
+  horses: FirebaseListObservable<any[]>;
+  trainings: FirebaseListObservable<any[]>;
   constructor(private angularfire: AngularFire){
 
 
@@ -20,9 +21,21 @@ export class HomePageComponent {
         orderByChild: 'id' ,
         equalTo: '25sZYMr8t9ZZCMtoaCq7NffdIP93'
       }
-    }); //Detta är vad som används just nu för att visa testvärdena då det inte finns några användare kopplade till tabellerna i testdatabasen
+    }); 
 
+    this.horses = angularfire.database.list('/v1/horses/',{
+      query: {
+        orderByChild: 'owner_id' ,
+        equalTo: '25sZYMr8t9ZZCMtoaCq7NffdIP93'
+      }
+    });
 
+    this.trainings = angularfire.database.list('/v1/trainings/',{
+      query: {
+        orderByChild: 'user' ,
+        equalTo: '25sZYMr8t9ZZCMtoaCq7NffdIP93'
+      }
+    });
   }
   
 
