@@ -15,7 +15,7 @@
 </div>
 
 <md-card class="example-card" [@slideUp]="'true'">
-  <h2 *ngIf="!isLoading" style="font-size: 22px;">Log in to your account</h2>
+  <h2 *ngIf="!isLoading" style="font-size: 22px;">Login to your account</h2>
   <h2 *ngIf="isLoading" style="font-size: 22px;">Logging in..</h2>
   <br>
 
@@ -33,7 +33,7 @@
     <div class="text-center">
       <button md-raised-button  type="submit">Log in</button>
 
-    <!--  <button md-raised-button  style="margin-top: 10px;" (click)="loginWithGoogle()">Log in with Google</button> -->
+    <!--  <button md-raised-button  style="margin-top: 10px;" (click)="loginWithGoogle()">Login with Google</button> -->
       <p *ngIf="error" class="error-text">{{errorMessage}}</p>
     </div>
   <!--  <div class="text-center newAccount">
