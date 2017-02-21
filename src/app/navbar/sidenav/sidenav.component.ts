@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component,OnDestroy} from '@angular/core';
 import {AF} from "../../services/af";
 import {Subscription} from "rxjs/Rx";
 
@@ -12,11 +12,11 @@ export class SideNavComponent implements OnDestroy {
   isAuthenticated = false;
   private subscription: Subscription;
   constructor(private authService: AF) {
-  
+
     this.subscription = this.authService.isAuthenticated().subscribe(
       authStatus => this.isAuthenticated = authStatus
     );
-  
+
   }
 
  isAuth() {

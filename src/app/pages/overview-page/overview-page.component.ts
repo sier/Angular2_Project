@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-
+import {slideToLeft} from "../../shared/animations/router.animations";
 
 @Component({
   selector: 'app-overview-page',
   templateUrl: './overview-page.component.html',
   styleUrls: ['./overview-page.component.scss'],
-
+  animations: [slideToLeft],
 
 
 
@@ -13,5 +13,9 @@ import {Component} from '@angular/core';
 export class OverviewPageComponent {
 
 
+  constructor() {
+
+
+  }
 
 }

@@ -7,12 +7,12 @@ import {OverviewPageComponent} from "./pages/overview-page/overview-page.compone
 import {AuthGuard} from "./shared/guard/auth.guard";
 
 const APP_ROUTES: Routes = [
-  {path: 'login', component: LoginPageComponent },
+  { path: 'login', component: LoginPageComponent },
   { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'overview', component: OverviewPageComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutPageComponent, canActivate: [AuthGuard]},
   { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
-
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

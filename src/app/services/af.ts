@@ -14,7 +14,7 @@ export class AF {
 
   constructor(private af: AngularFire) {
 
- 
+
   }
 
  isAuthenticated(): Observable<boolean> {
@@ -28,6 +28,9 @@ export class AF {
     });
     return subject.asObservable();
  }
+
+
+
   /**
    * Logs the user in using their Email/Password combo
    * @param email
@@ -89,21 +92,10 @@ export class AF {
   }
 
 
-  /**
-   *
-   * @param model
-   * @returns {firebase.Promise<void>}
-   * register function
-   */
-  registerUser(email, password) {
-    console.log(email)
-    return this.af.auth.createUser({
-      email: email,
-      password: password
-    });
 
 
-  }
+
+
 
 
 }

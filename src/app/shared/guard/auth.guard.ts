@@ -5,9 +5,13 @@ import { AF } from "../../services/af";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AF) {}
+  constructor(protected authService: AF) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this.authService.isAuthenticated().first();
   }
+
+
+
+
 }

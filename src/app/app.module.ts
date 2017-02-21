@@ -15,7 +15,10 @@ import {AboutPageComponent} from './pages/about-page/about-page.component';
 import {NavComponent} from './navbar/nav/nav.component';
 import {SideNavComponent} from './navbar/sidenav/sidenav.component';
 import {OverviewPageComponent} from './pages/overview-page/overview-page.component'
-import { ChartsModule } from 'ng2-charts';
+import { ChartModule } from 'angular2-highcharts';
+
+
+
 
 
 export const firebaseConfig = {
@@ -26,7 +29,7 @@ export const firebaseConfig = {
   messagingSenderId: "970803104790"
 };
 
-
+declare let require: any;
 
 @NgModule({
   imports: [
@@ -35,7 +38,9 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     MaterialModule,
-    ChartsModule,
+    ChartModule.forRoot(require('highcharts')),
+
+
 
 
   ],
@@ -51,6 +56,6 @@ export const firebaseConfig = {
 
   ],
   bootstrap: [ AppComponent ],
-  providers: [AF,AuthGuard,]
+  providers: [AF,AuthGuard]
 })
 export class AppModule {}

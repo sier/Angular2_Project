@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
               private router: Router) {
 
     console.log("AppComponent Loaded")
+
+
   }
 
 
@@ -32,8 +34,9 @@ export class AppComponent implements OnInit {
         }
         else {
           console.log("Successfully Logged in.");
+
           this.isLoggedIn = true;
-          
+
         }
       });
 

@@ -4,6 +4,7 @@ import {AF} from "../../services/af";
 import {Router} from "@angular/router";
 import {slideUpAnimation} from "../../shared/animations/slideUp.animation";
 
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -17,9 +18,12 @@ export class LoginPageComponent {
   isLoading = false;
   public error: any;
 
+
   constructor(private afService: AF, private router: Router) {
 
+
   }
+
 
   loginWithEmail(form: NgForm){
     this.isLoading = true;
@@ -36,6 +40,10 @@ export class LoginPageComponent {
       }
     });
   }
+
+
+
+
 
   loginWithGoogle() {
     this.afService.loginWithGoogle().then((data) => {
