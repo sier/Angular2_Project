@@ -21,13 +21,13 @@
 
   <form *ngIf="!isLoading" class="example-form" #signInForm="ngForm" (ngSubmit)="loginWithEmail(signInForm)">
     <md-input-container class="example-full-width">
-      <input md-input placeholder="email@gmail.com" type="email" name="email" ngModel required>
+      <input mdInput placeholder="email@gmail.com" type="email" name="email" ngModel required>
     </md-input-container>
 
     <br>
 
     <md-input-container class="example-full-width">
-      <input md-input placeholder="Password" type="password" name="password" ngModel required>
+      <input mdInput placeholder="Password" type="password" name="password" ngModel required>
     </md-input-container>
     <br>
     <div class="text-center">
