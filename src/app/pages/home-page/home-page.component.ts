@@ -1,20 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {fadeInAnimation} from "../../shared/animations/fadeIn.animation";
-import {AngularFire,FirebaseListObservable} from "angularfire2";
+import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {slideToLeft} from "../../shared/animations/router.animations";
+import {Observable} from "rxjs";
 
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  animations: [fadeInAnimation,slideToLeft],
-
+  animations: [fadeInAnimation, slideToLeft],
 })
+
+
 export class HomePageComponent implements OnInit {
   userinfo: FirebaseListObservable<any[]>;
   horses: FirebaseListObservable<any[]>;
-  trainings$: FirebaseListObservable<any[]>;
+
+  trainings: Observable<any[]>;
   graphDataTrainings: any[] = [];
 
 
@@ -24,6 +27,14 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.trainingsInfo();
+
+  }
+
+
+  userInfo() {
+
 
     this.userinfo = this.angularfire.database.list('/v1/userinfo/', {
       query: {
@@ -42,7 +53,7 @@ export class HomePageComponent implements OnInit {
       }
     });
 
-    this.trainings$ = this.angularfire.database.list('/v1/trainings/', {
+    this.trainings = this.angularfire.database.list('/v1/trainings/', {
       query: {
         orderByChild: 'user',
         indexOn: "user",
@@ -52,24 +63,122 @@ export class HomePageComponent implements OnInit {
     });
 
 
-
-    this.trainings$.subscribe(trainings => console.log(trainings));
-
-    this.test();
   }
 
 
-  test() {
+  // DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO
+  // DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO
+  // DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO
+  // DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO
+  // DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO
 
-    for (let entry of this.trainings$) {
-      console.log(entry); // tränings skit visas här
 
-      this.graphDataTrainings.push(entry.canter.beat)
-    }
+  beatArray = [];
+  horsesArray = [];
+  results: Observable<any[]>;
+
+ /* trainingsInfo() {
+
+    let uid = "25sZYMr8t9ZZCMtoaCq7NffdIP93";
+
+    // Map the stuffs
+    let userTrainings = this.angularfire.database.list('/v1/userinfo/' + uid + '/trainings/', {
+      query: {},
+    }).map(results => {
+      results.map(result => {
+        result.trainings = this.angularfire.database.object('/v1/trainings/' + result.$key);
+      });
+      return results;
+    });
+
+
+    // Subscribes to the userTrainings
+    userTrainings.subscribe(userTrainings => {
+      userTrainings.forEach(userTraining => {
+        userTraining.trainings.subscribe(training => {
+          // user traingings comes here
+          console.log(training);
+        });
+
+      })
+    });
   }
+  */
+
+  trainingsInfo() {
+
+    console.log("trainings info init");
+
+
+    let test = this.angularfire.database.list('/v1/trainings/', {
+      query: {
+        orderByChild: 'user',
+        equalTo: '25sZYMr8t9ZZCMtoaCq7NffdIP93'
+      },
+    }).subscribe(results => {
+      // results = trainings
+      //console.log(results);
+
+      results.forEach(result => {
+        // result = ONE training object
+        console.log(result.horse);
+        console.log(result.horse);
+        this.beatArray.push(result.canter.beat);
+        this.horsesArray.push(result.horse);
+
+
+      });
+
+      console.log(results);
+
+      // init graph here
+
+    });
+
+  }
+
+
+  public barChartOptions: any = {
+    responsive: true,
+    barThickness: 100
+  };
+
+
+  public barChartLabels: string[] = this.horsesArray;
+  public barChartType: string = 'bar';
+  public barChartLegend: boolean = true;
+
+  public barChartData: any[] = [
+    {data: [this.beatArray], label: 'Series A'},
+    {data: [this.beatArray], label: 'Series B'},
+    {data: [this.beatArray], label: 'Series C'},
+    {data: [this.beatArray], label: 'Series D'},
+
+  ];
+
+  // events
+  public chartClicked(e: any): void {
+    console.log(e);
+  }
+
+  public chartHovered(e: any): void {
+    console.log(e);
+  }
+
+
+
+
+
+
 
 
 }
+
+
+
+
+
+
 
 
 
