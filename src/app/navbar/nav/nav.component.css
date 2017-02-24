@@ -8,11 +8,9 @@ nav {
   margin: 0 15px;
 }
 
-
 .navbar-default {
   border: none;
 }
-
 
 nav ul li a {
   height: 55px;
@@ -23,29 +21,19 @@ nav ul li a {
   cursor: pointer;
 }
 
-
 .navbar-brand {
   color: #ED6C44;
   transition: 0.3s;
   padding-top: 10px;
 }
 
-
-
-
-
-nav ul li a:hover, .navbar-brand:hover  {
+nav ul li a:hover, .navbar-brand:hover {
   color: #2b2b2b;
 }
-
 
 .active {
   background-color: rgba(194, 43, 0, 1);
 }
-
-
-
-
 
 /* Collapsed when in mobile*/
 

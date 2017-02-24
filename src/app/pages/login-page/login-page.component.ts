@@ -12,7 +12,6 @@ import {slideUpAnimation} from "../../shared/animations/slideUp.animation";
   animations: [slideUpAnimation],
 
 
-
 })
 export class LoginPageComponent {
   isLoading = false;
@@ -25,11 +24,11 @@ export class LoginPageComponent {
   }
 
 
-  loginWithEmail(form: NgForm){
+  loginWithEmail(form: NgForm) {
     this.isLoading = true;
 
     this.afService.loginWithEmail(form.value.email, form.value.password).then((data) => {
-      console.log("SIGNED IN WITH EMAIL",data);
+      console.log("SIGNED IN WITH EMAIL", data);
       this.isLoading = false;
       this.router.navigate(['/home']);
     }).catch((error: any) => {
@@ -40,9 +39,6 @@ export class LoginPageComponent {
       }
     });
   }
-
-
-
 
 
   loginWithGoogle() {

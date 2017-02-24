@@ -9,18 +9,17 @@ import {AF} from "../../services/af";
   animations: [fadeInAnimation, slideToLeft],
 
 
-
 })
 
-export class ProfilePageComponent implements OnInit{
+export class ProfilePageComponent implements OnInit {
 
 
+  constructor(private authService: AF) {
+  }
 
-constructor(private authService: AF) {}
+  ngOnInit() {
 
-ngOnInit(){
-
-}
+  }
 
 
 }

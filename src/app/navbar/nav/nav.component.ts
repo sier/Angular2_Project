@@ -3,7 +3,6 @@ import {AF} from "../../services/af";
 import {Subscription} from "rxjs/Rx";
 
 
-
 @Component({
   selector: 'app-nav',
   templateUrl: 'nav.component.html',
@@ -14,6 +13,7 @@ export class NavComponent implements OnDestroy,OnInit {
   isAuthenticated = false;
   user: any;
   private subscription: Subscription;
+
   constructor(private authService: AF) {
 
 
@@ -23,14 +23,14 @@ export class NavComponent implements OnDestroy,OnInit {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
     this.user = this.authService.user;
 
   }
 
 
- isAuth() {
+  isAuth() {
     return this.isAuthenticated;
   }
 
@@ -38,7 +38,7 @@ export class NavComponent implements OnDestroy,OnInit {
     this.authService.logout();
   }
 
-ngOnDestroy() {
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

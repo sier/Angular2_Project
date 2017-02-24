@@ -8,7 +8,6 @@ import {slideToLeft} from "../../shared/animations/router.animations";
   animations: [slideToLeft],
 
 
-
 })
 export class OverviewPageComponent {
 

@@ -6,10 +6,10 @@ import {slideToLeft} from "../../shared/animations/router.animations";
   selector: 'app-about-page',
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss'],
-  animations: [slideUpAnimation,slideToLeft],
-
+  animations: [slideUpAnimation, slideToLeft],
 
 
 })
 
-export class AboutPageComponent {}
+export class AboutPageComponent {
+}

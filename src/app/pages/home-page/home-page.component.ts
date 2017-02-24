@@ -162,7 +162,6 @@ export class HomePageComponent implements OnInit {
         this.horseNameArray.push(result.name);
 
 
-
       });
 
       console.log(results);
@@ -172,9 +171,7 @@ export class HomePageComponent implements OnInit {
     });
 
 
-
   }
-
 
 
   public barChartOptions: any = {
@@ -201,12 +198,6 @@ export class HomePageComponent implements OnInit {
   public chartHovered(e: any): void {
     console.log(e);
   }
-
-
-
-
-
-
 
 
 }

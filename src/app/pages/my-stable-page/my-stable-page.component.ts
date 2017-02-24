@@ -8,12 +8,9 @@ import {slideToLeft} from "../../shared/animations/router.animations";
   animations: [fadeInAnimation, slideToLeft],
 
 
-
 })
 
 export class MyStablePageComponent {
-
-
 
 
 }
