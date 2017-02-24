@@ -14,21 +14,6 @@ nav {
 }
 
 
-.example-header-image {
-  background-image: url('../../../assets/images/profile-avatar.png');
-  background-size: cover;
-  margin-top: 8px;
-  border: none;
-  background-color: #ED6C44;
-}
-
-button.example-header-image {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-
-}
-
 nav ul li a {
   height: 55px;
   line-height: 28px;
@@ -42,6 +27,7 @@ nav ul li a {
 .navbar-brand {
   color: #ED6C44;
   transition: 0.3s;
+  padding-top: 10px;
 }
 
 

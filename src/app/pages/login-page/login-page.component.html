@@ -3,7 +3,7 @@
 
 
 <div  class="custom-background">
- <a href="https://equilab.horse/">  <img src="../../../assets/images/EquilabNamn.png" style="width: 106px; height: 44px; margin: 10px;" > </a>
+ <a class="navbar-brand" href="https://equilab.horse/"><img class="equilabName" src="../../../assets/images/equilabName.png" height="25px"/></a>
   <div align=center class="container">
 
 
@@ -15,19 +15,21 @@
 </div>
 
 <md-card class="example-card" [@slideUp]="'true'">
-  <h2 *ngIf="!isLoading" style="font-size: 22px;">Login to your account</h2>
-  <h2 *ngIf="isLoading" style="font-size: 22px;">Logging in..</h2>
-  <br>
+  <h2 *ngIf="!isLoading" style="font-size: 22px;"><img
+    src="../../../assets/images/equilabFavicon.png" height="60" width="60"/></h2>
+  <h2 *ngIf="isLoading" style="font-size: 22px;"><img src="../../../assets/images/equilabFavicon.png" height="200"
+                                                      width="200"/></h2>
+
 
   <form *ngIf="!isLoading" class="example-form" #signInForm="ngForm" (ngSubmit)="loginWithEmail(signInForm)">
     <md-input-container class="example-full-width">
-      <input mdInput placeholder="email@gmail.com" type="email" name="email" ngModel required>
+      <input mdInput placeholder="Email" type="email" name="email" ngModel required>
     </md-input-container>
 
-    <br>
+
 
     <md-input-container class="example-full-width">
-      <input mdInput placeholder="Password" type="password" name="password" ngModel required>
+      <input mdInput placeholder="Lösenord" type="password" name="password" ngModel required>
     </md-input-container>
     <br>
     <div class="text-center">

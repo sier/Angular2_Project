@@ -12,7 +12,7 @@
 
       <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-md-6">
 
           <div style="padding-left: 100px;" [@fadeIn]="'true'">
 
@@ -45,12 +45,111 @@
 
         </div>
 
-        <div class="col-md-12">
+
+          <div class="col-md-6">
+
+            <div style="padding-left: 100px;" [@fadeIn]="'true'">
+
+
+              <h1> TEST QUERIES </h1>
+              <ul style="margin-top: 50px;">
+                <li style="float:left; width:180px;" *ngFor="let item of userinfo | async">{{item.first_name}}
+                  {{item.weight}}kg {{item.gender}}
+                </li>
+                <li style="float:left; width:180px;" *ngFor="let item of horses | async">{{item.name}}</li>
+                <li style="float:left; width:180px;" *ngFor="let item of trainings$ | async">{{item.written_text}}
+                  {{item.canter.beat}}
+                </li>
+              </ul>
+
+
+              <div style="display: block">
+                <canvas baseChart
+                        [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <div style="padding-left: 100px;" [@fadeIn]="'true'">
+
+
+            <h1> TEST QUERIES </h1>
+            <ul style="margin-top: 50px;">
+              <li style="float:left; width:180px;" *ngFor="let item of userinfo | async">{{item.first_name}}
+                {{item.weight}}kg {{item.gender}}
+              </li>
+              <li style="float:left; width:180px;" *ngFor="let item of horses | async">{{item.name}}</li>
+              <li style="float:left; width:180px;" *ngFor="let item of trainings$ | async">{{item.written_text}}
+                {{item.canter.beat}}
+              </li>
+            </ul>
+
+
+            <div style="display: block">
+              <canvas baseChart
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+            </div>
+
+          </div>
+
 
         </div>
 
 
+        <div class="col-md-6">
+
+          <div style="padding-left: 100px;" [@fadeIn]="'true'">
+
+
+            <h1> TEST QUERIES </h1>
+            <ul style="margin-top: 50px;">
+              <li style="float:left; width:180px;" *ngFor="let item of userinfo | async">{{item.first_name}}
+                {{item.weight}}kg {{item.gender}}
+              </li>
+              <li style="float:left; width:180px;" *ngFor="let item of horses | async">{{item.name}}</li>
+              <li style="float:left; width:180px;" *ngFor="let item of trainings$ | async">{{item.written_text}}
+                {{item.canter.beat}}
+              </li>
+            </ul>
+
+
+            <div style="display: block">
+              <canvas baseChart
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+            </div>
+
+          </div>
+
+
+        </div>
       </div>
+
+
 
 
     </div>
