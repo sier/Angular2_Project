@@ -13,6 +13,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import {ProfilePageComponent} from './pages/profile-page/profile-page.component';
 import {AboutPageComponent} from './pages/about-page/about-page.component';
 import {NavComponent} from './navbar/nav/nav.component';
+import {MyStablePageComponent} from './pages/my-stable-page/my-stable-page.component';
 import {SideNavComponent} from './navbar/sidenav/sidenav.component';
 import {OverviewPageComponent} from './pages/overview-page/overview-page.component'
 import {ChartsModule} from "ng2-charts";
@@ -48,6 +49,7 @@ export const firebaseConfig = {
     OverviewPageComponent,
     ProfilePageComponent,
     AboutPageComponent,
+    MyStablePageComponent,
 
   ],
   bootstrap: [ AppComponent ],
