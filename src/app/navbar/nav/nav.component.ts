@@ -9,9 +9,9 @@ import {Subscription} from "rxjs/Rx";
   styleUrls: ['nav.component.css']
 })
 
-export class NavComponent implements OnDestroy,OnInit {
+export class NavComponent implements OnDestroy{
   isAuthenticated = false;
-  user: any;
+
   private subscription: Subscription;
 
   constructor(private authService: AF) {
@@ -22,13 +22,6 @@ export class NavComponent implements OnDestroy,OnInit {
     );
 
   }
-
-  ngOnInit() {
-
-    this.user = this.authService.user;
-
-  }
-
 
   isAuth() {
     return this.isAuthenticated;

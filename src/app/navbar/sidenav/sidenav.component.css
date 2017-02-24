@@ -13,7 +13,32 @@
   margin-top: 5px;
 }
 
-i {
+.user{
+  padding: 0 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+.userinfo{
+  padding: 15px 5px 0px 16px;
+  position: relative;
+}
+.info{
+  padding: 8px 0 8px 80px;
+}
+.username{
+  font-size: 18px;
+  line-height: 24px;
+}
+.useremail{
+  font-size: 12px;
+  line-height: 1.35;
+}
+.avatar{
+  position: absolute;
+  height: 64px;
+  width: 64px;
 }
 
 /* The navigation menu links */

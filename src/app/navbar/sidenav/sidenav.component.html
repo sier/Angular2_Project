@@ -2,7 +2,17 @@
 
 
   <div>
-    <br>
+    <div class="userinfo">
+      <div class="avatar">
+        <i class="material-icons" style="font-size: 60px;">account_circle</i>
+      </div>
+      <div class="info">
+        <span class="username">Username</span>
+        <span class="useremail">{{user?.email}}</span>
+      </div>
+    </div>
+
+    <hr>
     <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home"></span>Home</a>
     <hr>
     <a [routerLink]="['/mystable']"><span><i class="material-icons">business</i></span>My Stable</a>
