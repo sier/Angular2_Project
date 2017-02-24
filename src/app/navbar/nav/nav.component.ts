@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AF} from "../../services/af";
 import {Subscription} from "rxjs/Rx";
 
@@ -10,16 +10,25 @@ import {Subscription} from "rxjs/Rx";
   styleUrls: ['nav.component.css']
 })
 
-export class NavComponent implements OnDestroy {
+export class NavComponent implements OnDestroy,OnInit {
   isAuthenticated = false;
+  user: any;
   private subscription: Subscription;
   constructor(private authService: AF) {
 
-   this.subscription = this.authService.isAuthenticated().subscribe(
+
+    this.subscription = this.authService.isAuthenticated().subscribe(
       authStatus => this.isAuthenticated = authStatus
     );
 
   }
+
+  ngOnInit(){
+
+    this.user = this.authService.user;
+
+  }
+
 
  isAuth() {
     return this.isAuthenticated;

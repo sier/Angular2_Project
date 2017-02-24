@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import * as firebase from 'firebase';
 import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,FirebaseAuthState} from 'angularfire2';
-import { Observable, Subject } from "rxjs/Rx";
+import {Observable, Subject, BehaviorSubject} from "rxjs/Rx";
 
 
 
@@ -11,9 +11,14 @@ export class AF {
   public users: FirebaseListObservable<any>;
   public displayName: string;
   public email: string;
+  private _authState: FirebaseAuthState = null;
+  private _isAuthenticated = new BehaviorSubject<boolean>(false); // false is the initial value
 
   constructor(private af: AngularFire) {
-
+    af.auth.subscribe((state: FirebaseAuthState) => {
+      this._authState = state;
+      this._isAuthenticated.next(this._authState !== null);
+    });
 
   }
 
@@ -30,7 +35,9 @@ export class AF {
  }
 
 
-
+  get user() {
+    return this._isAuthenticated ? this._authState.auth : '';
+  }
   /**
    * Logs the user in using their Email/Password combo
    * @param email
