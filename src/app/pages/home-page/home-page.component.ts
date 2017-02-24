@@ -29,7 +29,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
 
     this.trainingsInfo();
-
+    this.horsesInfo();
   }
 
 
@@ -75,35 +75,37 @@ export class HomePageComponent implements OnInit {
 
   beatArray = [];
   horsesArray = [];
+  horseNameArray = [];
+  totalTimeArray = [];
   results: Observable<any[]>;
 
- /* trainingsInfo() {
+  /* trainingsInfo() {
 
-    let uid = "25sZYMr8t9ZZCMtoaCq7NffdIP93";
+   let uid = "25sZYMr8t9ZZCMtoaCq7NffdIP93";
 
-    // Map the stuffs
-    let userTrainings = this.angularfire.database.list('/v1/userinfo/' + uid + '/trainings/', {
-      query: {},
-    }).map(results => {
-      results.map(result => {
-        result.trainings = this.angularfire.database.object('/v1/trainings/' + result.$key);
-      });
-      return results;
-    });
+   // Map the stuffs
+   let userTrainings = this.angularfire.database.list('/v1/userinfo/' + uid + '/trainings/', {
+   query: {},
+   }).map(results => {
+   results.map(result => {
+   result.trainings = this.angularfire.database.object('/v1/trainings/' + result.$key);
+   });
+   return results;
+   });
 
 
-    // Subscribes to the userTrainings
-    userTrainings.subscribe(userTrainings => {
-      userTrainings.forEach(userTraining => {
-        userTraining.trainings.subscribe(training => {
-          // user traingings comes here
-          console.log(training);
-        });
+   // Subscribes to the userTrainings
+   userTrainings.subscribe(userTrainings => {
+   userTrainings.forEach(userTraining => {
+   userTraining.trainings.subscribe(training => {
+   // user traingings comes here
+   console.log(training);
+   });
 
-      })
-    });
-  }
-  */
+   })
+   });
+   }
+   */
 
   trainingsInfo() {
 
@@ -114,6 +116,7 @@ export class HomePageComponent implements OnInit {
       query: {
         orderByChild: 'user',
         equalTo: '25sZYMr8t9ZZCMtoaCq7NffdIP93'
+
       },
     }).subscribe(results => {
       // results = trainings
@@ -125,7 +128,7 @@ export class HomePageComponent implements OnInit {
         console.log(result.horse);
         this.beatArray.push(result.canter.beat);
         this.horsesArray.push(result.horse);
-
+        this.totalTimeArray.push(result.total.time);
 
       });
 
@@ -137,6 +140,42 @@ export class HomePageComponent implements OnInit {
 
   }
 
+  horsesInfo() {
+
+    console.log("horses info init");
+
+
+    let test = this.angularfire.database.list('/v1/horses/', {
+      query: {
+        orderByChild: 'owner_id',
+        equalTo: '25sZYMr8t9ZZCMtoaCq7NffdIP93'
+
+      },
+    }).subscribe(results => {
+      // results = horses
+      //console.log(results);
+
+      results.forEach(result => {
+        // result = ONE horse object
+        console.log(result.horse);
+        console.log(result.horse);
+        this.horseNameArray.push(result.name);
+
+
+
+      });
+
+      console.log(results);
+
+      // init graph here
+
+    });
+
+
+
+  }
+
+
 
   public barChartOptions: any = {
     responsive: true,
@@ -144,15 +183,13 @@ export class HomePageComponent implements OnInit {
   };
 
 
-  public barChartLabels: string[] = this.horsesArray;
+  public barChartLabels: string[] = this.horseNameArray;
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
 
   public barChartData: any[] = [
-    {data: [this.beatArray], label: 'Series A'},
-    {data: [this.beatArray], label: 'Series B'},
-    {data: [this.beatArray], label: 'Series C'},
-    {data: [this.beatArray], label: 'Series D'},
+    {data: this.totalTimeArray, label: 'Total aktivitet'},
+
 
   ];
 
