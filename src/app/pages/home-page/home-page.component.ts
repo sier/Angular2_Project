@@ -19,7 +19,7 @@ export class HomePageComponent implements OnInit {
 
   trainings: Observable<any[]>;
   graphDataTrainings: any[] = [];
-
+  isLoading = false;
 
   constructor(private angularfire: AngularFire) {
 
@@ -166,7 +166,7 @@ export class HomePageComponent implements OnInit {
       });
 
       console.log(results);
-
+      this.isLoading = true;
       // init graph here
 
     });
