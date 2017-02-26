@@ -3,12 +3,12 @@
 
   <div>
     <div class="userinfo">
-      <div class="avatar">
-        <i class="material-icons" style="font-size: 60px;">account_circle</i>
+      <div style="" class="avatar">
+       <a class="avatar" style="padding: 0;" [routerLink]="['profile']"><i class="material-icons" style="font-size: 60px; color: #FFFFFF;">account_circle</i></a>
       </div>
       <div class="info">
-        <span class="username">Username</span>
-        <span class="useremail">{{user?.email}}</span>
+        <span style="color: #FFFFFF;" class="username">Logged in as:</span>
+        <span style="color: #FFFFFF; font-size: 15px;" class="useremail">{{user}}</span>
       </div>
     </div>
 

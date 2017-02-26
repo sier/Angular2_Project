@@ -23,17 +23,19 @@
 
       <form *ngIf="!isLoading" class="example-form" #signInForm="ngForm" (ngSubmit)="loginWithEmail(signInForm)">
         <md-input-container class="example-full-width">
-          <input mdInput placeholder="Email" type="email" name="email" ngModel required>
+          <input mdInput placeholder="Email" type="email" name="email" class="email" ngModel required>
         </md-input-container>
 
 
         <md-input-container class="example-full-width">
-          <input mdInput placeholder="Lösenord" type="password" name="password" ngModel required>
+          <input mdInput placeholder="Lösenord" type="password" name="password" class="password"  ngModel required>
         </md-input-container>
         <br>
         <div class="text-center">
           <button md-raised-button type="submit">Log in</button>
-
+          <br>
+          <br>
+          <a href="#" style="font-size: 15px;"> Forgot your password?</a>
           <!--  <button md-raised-button  style="margin-top: 10px;" (click)="loginWithGoogle()">Login with Google</button> -->
           <p *ngIf="error" class="error-text">{{errorMessage}}</p>
         </div>

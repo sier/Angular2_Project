@@ -26,7 +26,7 @@
         <li *ngIf="!isAuth()" [routerLink]="['login']"><a><span class="glyphicon glyphicon-log-in"></span> Login</a>
         </li>
         <li *ngIf="isAuth()"><a (click)="onSignOut()"><span class="glyphicon glyphicon-lock"></span> Logout</a></li>
-        <li *ngIf="isAuth()" [routerLink]="['profile']"><a> <i class="material-icons">account_circle</i></a></li>
+       <!-- <li *ngIf="isAuth()" [routerLink]="['profile']"><a> <i class="material-icons">account_circle</i></a></li> -->
       </ul>
     </div>
 

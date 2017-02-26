@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AF} from "../../services/af";
 import {Subscription} from "rxjs/Rx";
+import {AngularFire} from "angularfire2";
 
 @Component({
   selector: 'app-sidenav',
@@ -13,18 +14,32 @@ export class SideNavComponent implements OnDestroy, OnInit {
   private subscription: Subscription;
   user: any;
 
-  constructor(private authService: AF) {
+  constructor(private authService: AF, private angularFire: AngularFire) {
 
     this.subscription = this.authService.isAuthenticated().subscribe(
       authStatus => this.isAuthenticated = authStatus
     );
 
+
+
+
   }
   ngOnInit() {
+    this.angularFire.auth.subscribe(user => {
 
-    this.user = this.authService.user;
+      if(user) {
+// gets users email if logged in
+        this.user = this.angularFire.auth.getAuth().auth.email
+      }
+      else {
+// user not logged in no email
+        this.user = {};
+      }
+    });
 
   }
+
+
   isAuth() {
     return this.isAuthenticated;
   }

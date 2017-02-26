@@ -37,9 +37,20 @@
 }
 .avatar{
   position: absolute;
-  height: 64px;
-  width: 64px;
+  height: 60px;
+  width: 60px;
+
 }
+.avatar a.avatar:hover  {
+  background-color: #2b2b2b;
+  border-radius: 100%;
+}
+
+.avatar a {
+  height: 60px;
+  width: 60px;
+}
+
 
 /* The navigation menu links */
 .sidenav a {
@@ -57,7 +68,7 @@ hr {
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus {
+.sidenav a:hover {
   color: #2b2b2b;
 }
 
