@@ -4,7 +4,7 @@
   <div>
     <div class="userinfo">
       <div style="" class="avatar">
-       <a class="avatar" style="padding: 0;" [routerLink]="['profile']"><i class="material-icons" style="font-size: 60px; color: #FFFFFF;">account_circle</i></a>
+       <a class="avatar" style="padding: 0;" [routerLink]="['profile']" routerLinkActive="avatarActive"><i class="material-icons" style="font-size: 60px; color: #FFFFFF;">account_circle</i></a>
       </div>
       <div class="info">
         <span style="color: #FFFFFF;" class="username">Logged in as:</span>
@@ -13,13 +13,13 @@
     </div>
 
     <hr>
-    <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home"></span>Home</a>
+    <a [routerLink]="['/home']" routerLinkActive="active"><span class="glyphicon glyphicon-home"></span>Home</a>
     <hr>
-    <a [routerLink]="['/mystable']"><span><i class="material-icons">business</i></span>My Stable</a>
+    <a [routerLink]="['/mystable']" routerLinkActive="active"><span><i class="material-icons">business</i></span>My Stable</a>
     <hr>
-    <a [routerLink]="['/overview']"><span class="glyphicon glyphicon-eye-open"></span>Overview</a>
+    <a [routerLink]="['/overview']" routerLinkActive="active"><span class="glyphicon glyphicon-eye-open"></span>Overview</a>
     <hr>
-    <a [routerLink]="['/about']"><span class="glyphicon glyphicon-info-sign"></span>About</a>
+    <a [routerLink]="['/about']" routerLinkActive="active"><span class="glyphicon glyphicon-info-sign"></span>About</a>
     <hr>
 
   </div>
