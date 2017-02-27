@@ -40,7 +40,12 @@ export class LoginPageComponent {
     });
   }
 
-
+  logInWithFacebook() {
+    this.afService.logInWithFacebook().then(authState => {
+      console.log("SIGNED IN WITH FACEBOOK");
+    }).catch(error => {
+    });
+  }
 
 
 }

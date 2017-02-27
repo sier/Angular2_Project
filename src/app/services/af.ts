@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 @Injectable()
 export class AF {
 
-
+  private _dbRoot: firebase.database.Reference;
   public email: string;
   public user: any;
 
@@ -66,6 +66,26 @@ export class AF {
         provider: AuthProviders.Password,
         method: AuthMethods.Password,
       });
+  }
+
+  logInWithFacebook() {
+    let provider = new firebase.auth.FacebookAuthProvider();
+
+    return firebase.auth().signInWithPopup(provider).then(result => {
+
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      let accessToken = result.credential.accessToken;
+
+      // The signed-in user info.
+      let user = result.user;
+
+      // Creates or Updates /users/uid
+      this._dbRoot.child('/users/' + user.uid).update({
+        accessToken: accessToken,
+        uid: user.uid,
+        email: user.email,
+      });
+    });
   }
 
 

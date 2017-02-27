@@ -34,14 +34,12 @@
         <div class="text-center">
           <button md-raised-button type="submit">Log in</button>
           <br>
-          <br>
-          <a href="#" style="font-size: 15px;"> Forgot your password?</a>
-          <!--  <button md-raised-button  style="margin-top: 10px;" (click)="loginWithGoogle()">Login with Google</button> -->
           <p *ngIf="error" class="error-text">{{errorMessage}}</p>
         </div>
-        <!--  <div class="text-center newAccount">
-            <a  [routerLink]="['/register']">Create an account</a>
-          </div> -->
+        <button md-raised-button  style="margin-top: 10px;" (click)="logInWithFacebook()">Login with Facebook</button>
+
+        <a href="#" style="font-size: 15px;"> Forgot your password?</a>
+
       </form>
 
       <div *ngIf="isLoading" class="text-center">
