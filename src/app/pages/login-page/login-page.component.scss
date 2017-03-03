@@ -20,8 +20,16 @@
   line-height: 20px;
 }
 
-
-
+@media screen and (max-width: 750px){
+  .example-card {
+    width: auto;
+    margin: 0;
+    margin-left: 0;
+    font-size: 20px;
+    background: transparent;
+    padding-top: 100px;
+  }
+}
 
 .example-full-width {
   width: 100%;
@@ -64,7 +72,7 @@ div.custom-background {
   height: 100vh;
   z-index: 3000;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%), url(../../../assets/images/RiderBackgroundBlurMedium.jpg);
+  background: linear-gradient(to bottom, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%), url(assets/images/RiderBackgroundBlurMedium.jpg);
   background-size: cover;
 
 }

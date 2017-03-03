@@ -1,330 +1,89 @@
 <title>Equilab | Overview</title>
 
-<div class="container" [@slideToLeft]="'true'" style="padding-left: 250px; margin-top: 40px; width: auto;">
+<div class="container">
   <div class="wrapper">
 
-    <div id="page-wrapper">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="page-header">Tables</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-      </div>
-      <!-- /.row -->
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              DataTables Advanced Tables
-            </div>
+    <div id="page-wrapper" [@slideToLeft]="'true'">
+      <div>
+        <md-card>
+          <md-tab-group>
+            <md-tab>
 
-          </div>
-          <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
-      </div>
-      <!-- /.col-lg-12 -->
 
-      <!-- /.row -->
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Kitchen Sink
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-6 -->
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Basic Table
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-6 -->
+            <template class="tabColor" md-tab-label>
+             Months
+            </template>
+              <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
+              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
+              </select>
+            <p>{{weekday | date:"ww"}}</p>
+            <hr style="border-color: lightgrey; width:100%;">
+              <p *ngFor='let v of _values2'>{{ v }} </p>
+          </md-tab>
+          <md-tab>
+            <template md-tab-label>
+              Weeks
+            </template>
+            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
+              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
+            </select>
+            <p *ngFor='let v of _values2'>{{ v }} </p>
+            <table class="table-responsive" style="width:100%;">
+              <tr>
+                {{test}}
+                <th style="" class="rowsPadding">Horses</th>
+                <th class="rowsPadding">W-3</th>
+                <th class="rowsPadding">W-4</th>
+                <th class="rowsPadding">W-5</th>
+                <th class="rowsPadding">W-6</th>
+                <th class="rowsPadding">W-7</th>
+                <th class="rowsPadding">W-8</th>
+                <th class="rowsPadding">
+                  <div class="week-number">
+                    W-{{weekOfYear | week}}
+                  </div></th>
+              </tr>
+              <tr>
+                <td style="display: flex" class="rowsPadding" *ngFor="let item of horses | async">
+                  {{item.name}}
+                </td>
+                <td style="" class="rowsPadding" *ngFor="let item of trainingsS | async ">
+                  {{item.canter.beat}}
+                </td>
+
+              </tr>
+            </table>
+            <hr style="border-color: lightgrey; width:100%;">
+          </md-tab>
+          <md-tab>
+
+            <template md-tab-label>
+              Days
+            </template>
+            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
+              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
+            </select>
+            <p *ngFor='let v of _values2'>{{ v }} </p>
+            <table class="table-responsive" style="width: 100%;">
+              <tr >
+                <th style="" class="rowsPadding">Horses</th>
+                <th class="rowsPadding">Tuesday</th>
+                <th class="rowsPadding">Wednesday</th>
+                <th class="rowsPadding">Thursday</th>
+                <th class="rowsPadding">Friday</th>
+                <th class="rowsPadding">Saturday</th>
+                <th class="rowsPadding">Sunday</th>
+                <th class="rowsPadding">Today</th>
+              </tr>
+              <tr></tr>
+            </table>
+            <hr style="border-color: lightgrey; width:100%;">
+          </md-tab>
+        </md-tab-group>
+</md-card>
       </div>
-      <!-- /.row -->
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Striped Rows
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              <div class="table-responsive">
-                <table class="table table-striped">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-6 -->
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Bordered Table
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              <div class="table-responsive table-bordered">
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-6 -->
-      </div>
-      <!-- /.row -->
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Hover Rows
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-6 -->
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Context Classes
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr class="success">
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr class="info">
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr class="warning">
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                  <tr class="danger">
-                    <td>4</td>
-                    <td>John</td>
-                    <td>Smith</td>
-                    <td>@jsmith</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-6 -->
-      </div>
-      <!-- /.row -->
     </div>
-    <!-- /#page-wrapper -->
   </div>
-  <!-- /.wrapper -->
-
 </div>
-<!-- /.container -->
-
-
 
 

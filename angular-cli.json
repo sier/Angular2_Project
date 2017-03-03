@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.26",
-    "name": "equilab"
+    "name": "angular2-project"
   },
   "apps": [
     {
@@ -21,7 +21,8 @@
         "styles.sass"
       ],
       "scripts": [
-        "../node_modules/chart.js/dist/Chart.bundle.js"
+        "../node_modules/chart.js/dist/Chart.bundle.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

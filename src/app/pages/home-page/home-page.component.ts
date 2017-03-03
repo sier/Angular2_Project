@@ -177,15 +177,30 @@ export class HomePageComponent implements OnInit {
   public barChartOptions: any = {
     responsive: true,
     barThickness: 100
+
+
   };
 
+public barChartColors:Array<any> = [
+  {
+    backgroundColor: '#ff724f',
+    borderColor: '#000000',
+    pointBackgroundColor: 'rgba(77,83,96,1)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: '#fff'
+
+}
+
+
+];
 
   public barChartLabels: string[] = this.horseNameArray;
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
 
   public barChartData: any[] = [
-    {data: this.totalTimeArray, label: 'Total aktivitet'},
+    {data: this.totalTimeArray, label: 'Test Test'},
 
 
   ];

@@ -39,6 +39,9 @@ export class SideNavComponent implements OnDestroy, OnInit {
 
   }
 
+  onSignOut() {
+    this.authService.logout();
+  }
 
   isAuth() {
     return this.isAuthenticated;

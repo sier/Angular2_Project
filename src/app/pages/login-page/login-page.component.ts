@@ -20,9 +20,7 @@ export class LoginPageComponent {
 
   constructor(private afService: AF, private router: Router) {
 
-
   }
-
 
   loginWithEmail(form: NgForm) {
     this.isLoading = true;
@@ -30,7 +28,7 @@ export class LoginPageComponent {
     this.afService.loginWithEmail(form.value.email, form.value.password).then((data) => {
       console.log("SIGNED IN WITH EMAIL", data);
       this.isLoading = false;
-      this.router.navigate(['/home']);
+      this.router.navigate(['/overview']);
     }).catch((error: any) => {
       if (error) {
         this.isLoading = false;
@@ -41,11 +39,14 @@ export class LoginPageComponent {
   }
 
   logInWithFacebook() {
+    this.isLoading = true;
     this.afService.logInWithFacebook().then(authState => {
       console.log("SIGNED IN WITH FACEBOOK");
+
     }).catch(error => {
+      this.isLoading = false;
+      this.router.navigate(['/overview']);
     });
   }
-
 
 }

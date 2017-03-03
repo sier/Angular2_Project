@@ -88,7 +88,6 @@ export class AF {
     });
   }
 
-
   /**
    * Logs out the current user
    */

@@ -3,7 +3,7 @@
 
 <div class="custom-background">
   <a class="navbar-brand" href="https://equilab.horse/"><img class="equilabName"
-                                                             src="../../../assets/images/equilabName.png"
+                                                             src="assets/images/equilabName.png"
                                                              height="25px"/></a>
   <div align=center class="container">
 
@@ -16,8 +16,8 @@
 
     <md-card class="example-card" [@slideUp]="'true'">
       <h2 *ngIf="!isLoading" style="font-size: 22px;"><img
-        src="../../../assets/images/equilabFavicon.png" height="60" width="60"/></h2>
-      <h2 *ngIf="isLoading" style="font-size: 22px;"><img src="../../../assets/images/equilabFavicon.png" height="200"
+        src="assets/images/equilabFavicon.png" height="60" width="60"/></h2>
+      <h2 *ngIf="isLoading" style="font-size: 22px;"><img src="assets/images/equilabFavicon.png" height="200"
                                                           width="200"/></h2>
 
 
@@ -32,7 +32,7 @@
         </md-input-container>
         <br>
         <div class="text-center">
-          <button md-raised-button type="submit">Log in</button>
+          <button md-raised-button type="submit">Login</button>
           <br>
           <p *ngIf="error" class="error-text">{{errorMessage}}</p>
         </div>

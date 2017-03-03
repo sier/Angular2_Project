@@ -6,7 +6,6 @@ import {AboutPageComponent} from "./pages/about-page/about-page.component";
 import {OverviewPageComponent} from "./pages/overview-page/overview-page.component";
 import {AuthGuard} from "./shared/guard/auth.guard";
 import {MyStablePageComponent} from "./pages/my-stable-page/my-stable-page.component";
-import {MySettingsPageComponent} from "./pages/settings-page/settings-page.component";
 
 const APP_ROUTES: Routes = [
   { path: 'login', component: LoginPageComponent },
@@ -15,9 +14,7 @@ const APP_ROUTES: Routes = [
   { path: 'about', component: AboutPageComponent, canActivate: [AuthGuard]},
   { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
   { path: 'mystable', component: MyStablePageComponent, canActivate: [AuthGuard] },
-  { path: 'settings', component: MySettingsPageComponent , canActivate: [AuthGuard] },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  
+  { path: '',   redirectTo: '/overview', pathMatch: 'full' },
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

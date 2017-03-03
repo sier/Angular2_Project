@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -18,7 +17,9 @@ import {MyStablePageComponent} from './pages/my-stable-page/my-stable-page.compo
 import {SideNavComponent} from './navbar/sidenav/sidenav.component';
 import {OverviewPageComponent} from './pages/overview-page/overview-page.component'
 import {ChartsModule} from "ng2-charts";
-import{MySettingsPageComponent} from './pages/settings-page/settings-page.component';
+import { CollapseDirective } from 'ng2-bootstrap';
+import {WeekPipe} from "./pages/overview-page/week.pipe";
+
 
 
 
@@ -52,7 +53,8 @@ export const firebaseConfig = {
     ProfilePageComponent,
     AboutPageComponent,
     MyStablePageComponent,
-    MySettingsPageComponent,
+    CollapseDirective,
+    WeekPipe
 
   ],
   bootstrap: [ AppComponent ],

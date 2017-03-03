@@ -11,7 +11,7 @@ import {Subscription} from "rxjs/Rx";
 
 export class NavComponent implements OnDestroy{
   isAuthenticated = false;
-
+  public isCollapsed: boolean = true;
   private subscription: Subscription;
 
   constructor(private authService: AF) {
