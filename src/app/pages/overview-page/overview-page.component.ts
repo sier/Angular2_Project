@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {slideToLeft} from "../../shared/animations/router.animations";
-import { MdButton }          from '@angular2-material/button';
-import {MD_TABS_DIRECTIVES} from '@angular2-material/tabs/tabs';
+import { MaterialModule }          from '@angular/material';
+
 
 @Component({
   selector: 'app-overview-page',

@@ -1,6 +1,6 @@
 <title>Equilab | Overview</title>
 
-<div class="container">
+<div class="container" style="margin-top: 40px;">
   <div class="wrapper">
 
     <div id="page-wrapper" [@slideToLeft]="'true'">
@@ -51,11 +51,11 @@
                   </div></th>
               </tr>
               <tr>
-                <td style="display: flex" class="rowsPadding" *ngFor="let item of horses | async">
-                  {{item.name}}
+                <td style="display: flex" class="rowsPadding">
+
                 </td>
-                <td style="" class="rowsPadding" *ngFor="let item of trainingsS | async ">
-                  {{item.canter.beat}}
+                <td style="" class="rowsPadding" >
+
                 </td>
 
               </tr>
