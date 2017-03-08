@@ -7,11 +7,18 @@
       <div>
         <md-card>
           <md-tab-group>
-            <md-tab>
 
+            <!-- Ignorera, failat från AngJS.
+            <md-tabs>
+              <md-tab class="testLol" md-no-ink="true">
+                hello
+              </md-tab>
+            </md-tabs>
+            -->
 
+            <md-tab id="tab1">
             <template class="tabColor" md-tab-label>
-             Months
+              Months
             </template>
               <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
               <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>

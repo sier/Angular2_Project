@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {slideToLeft} from "../../shared/animations/router.animations";
+import { MdButton }          from '@angular2-material/button';
+import {MD_TABS_DIRECTIVES} from '@angular2-material/tabs/tabs';
 
 @Component({
   selector: 'app-overview-page',
@@ -8,6 +10,12 @@ import {slideToLeft} from "../../shared/animations/router.animations";
   styleUrls: ['./overview-page.component.scss'],
   animations: [slideToLeft],
 
+  styles:[`
+     :host .md-tab-header { background: #ED6C44; }
+     :host label { background-color: green; }
+     :host .md-tab { background-color: #ED6C44; }
+     :host .mat-ripple { background-color: #ED6C44 !important; }
+  `]
 
 })
 export class OverviewPageComponent implements OnInit{
