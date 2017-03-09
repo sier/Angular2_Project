@@ -19,7 +19,8 @@ import {OverviewPageComponent} from './pages/overview-page/overview-page.compone
 import {ChartsModule} from "ng2-charts";
 import { CollapseDirective } from 'ng2-bootstrap';
 import {WeekPipe} from "./pages/overview-page/week.pipe";
-
+import {secondsToTimePipe} from "./pages/overview-page/secondsToTime.pipe";
+import {distancePipe} from "./pages/overview-page/distance.pipe";
 
 
 
@@ -54,7 +55,9 @@ export const firebaseConfig = {
     AboutPageComponent,
     MyStablePageComponent,
     CollapseDirective,
-    WeekPipe
+    WeekPipe,
+    secondsToTimePipe,
+    distancePipe,
 
   ],
   bootstrap: [ AppComponent ],
