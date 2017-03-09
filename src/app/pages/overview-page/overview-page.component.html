@@ -1,96 +1,117 @@
 <title>Equilab | Overview</title>
 
-<div class="container" style="margin-top: 40px;">
+<div class="container">
   <div class="wrapper">
 
     <div id="page-wrapper" [@slideToLeft]="'true'">
-      <div>
-        <md-card>
-          <md-tab-group>
 
-            <!-- Ignorera, failat från AngJS.
-            <md-tabs>
-              <md-tab class="testLol" md-no-ink="true">
-                hello
-              </md-tab>
-            </md-tabs>
-            -->
+      <md-card>
+        <md-tab-group>
+          <md-tab>
 
-            <md-tab id="tab1">
+
+            <!--  <p>{{weekday | date:"ww"}}</p>  -->
+
             <template class="tabColor" md-tab-label>
               Months
             </template>
-              <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
-              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
-              </select>
-            <p>{{weekday | date:"ww"}}</p>
+            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}"
+                    (change)="selectedFromList($event.target.selectedIndex)">
+              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
+              </option>
+            </select>
+
             <hr style="border-color: lightgrey; width:100%;">
-              <p *ngFor='let v of _values2'>{{ v }} </p>
+            <p *ngFor='let v of _values2'>{{ v }} </p>
           </md-tab>
           <md-tab>
             <template md-tab-label>
               Weeks
             </template>
-            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
-              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
+            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}"
+                    (change)="selectedFromList($event.target.selectedIndex)">
+              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
+              </option>
             </select>
             <p *ngFor='let v of _values2'>{{ v }} </p>
             <table class="table-responsive" style="width:100%;">
               <tr>
                 {{test}}
                 <th style="" class="rowsPadding">Horses</th>
-                <th class="rowsPadding">W-3</th>
-                <th class="rowsPadding">W-4</th>
-                <th class="rowsPadding">W-5</th>
-                <th class="rowsPadding">W-6</th>
-                <th class="rowsPadding">W-7</th>
-                <th class="rowsPadding">W-8</th>
-                <th class="rowsPadding">
-                  <div class="week-number">
-                    W-{{weekOfYear | week}}
-                  </div></th>
-              </tr>
-              <tr>
-                <td style="display: flex" class="rowsPadding">
-
-                </td>
-                <td style="" class="rowsPadding" >
-
-                </td>
-
+                <th *ngFor="let i of weeks" ngClass="rowsPadding">{{i?.name}}</th>
               </tr>
             </table>
             <hr style="border-color: lightgrey; width:100%;">
           </md-tab>
-          <md-tab>
 
+        <md-tab>
             <template md-tab-label>
               Days
             </template>
-            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
-              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
+            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}"
+                    (change)="selectedFromList($event.target.selectedIndex)">
+              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
+              </option>
             </select>
             <p *ngFor='let v of _values2'>{{ v }} </p>
-            <table class="table-responsive" style="width: 100%;">
-              <tr >
+
+            <table class="table table-responsive table-hover" style="width: 100%;">
+              <thead>
+              <tr>
                 <th style="" class="rowsPadding">Horses</th>
-                <th class="rowsPadding">Tuesday</th>
-                <th class="rowsPadding">Wednesday</th>
-                <th class="rowsPadding">Thursday</th>
-                <th class="rowsPadding">Friday</th>
-                <th class="rowsPadding">Saturday</th>
-                <th class="rowsPadding">Sunday</th>
-                <th class="rowsPadding">Today</th>
+                <th *ngFor="let i of days" ngClass="rowsPadding">{{i?.name}}</th>
               </tr>
-              <tr></tr>
-            </table>
-            <hr style="border-color: lightgrey; width:100%;">
+              </thead>
+              <tbody>
+              <tr *ngFor="let horse of myPonnys; let i = index">
+                  <td style="display: inline-flex">
+                    <h4 class="rowsPadding">{{horse?.name}}</h4>
+
+                    <div *ngFor="let training of horse.trainingsData; let trainingIndex = index"
+
+                         style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
+                      <p>Date: {{training?.date}}</p><br>
+
+                      <div *ngIf="!isLoading" class="container-fluid" style="display:inline;">
+
+                        <p style="display: inline">Gait:</p>
+                        <canvas style="display: inline;" baseChart width="100" height="70"
+                                [datasets]="[{data: [training?.trot.time, training?.walk.time, training?.canter.time], label: 'Time'}]"
+                                [labels]="barChartLabels"
+                                [options]="barChartOptions"
+                                [colors]="barChartColors"
+                                [legend]="barChartLegend"
+                                [chartType]="barChartType"></canvas>
+                      </div>
+                      <p>Surface: {{training?.ground}}</p><br>
+                      <p>Time: {{training?.total.time}}</p><br>
+                      <p>Distance: {{training?.total.distance}}</p><br>
+                      <p>Turns: </p>
+                      <!-- Av någon anledning funkar inte [training?.turns.leftTotal, training?.turns.rightTotal] får error att det inte finns i databasen men det gör det....
+                       <div *ngIf="!isLoading" style="display: block">
+                        <canvas baseChart width="80" height="80"
+                                [datasets]="[{data: [training?.turns.leftTotal, training?.turns.rightTotal] }]"
+                                [labels]="pieChartLabels"
+                                [chartType]="pieChartType"
+                                ></canvas>
+                      </div> --><br>
+                      <p>Horse Performance: {{training?.horse_performance}}/5</p><br>
+                      <p>Rider Performance: {{training?.rider_performance}}/5</p><br>
+
+                    </div>
+                  </td>
+                  </tr>
+                  </tbody>
+
+                </table>
+
+                <hr style="border-color: lightgrey; width:100%;">
+
+
           </md-tab>
         </md-tab-group>
-</md-card>
-      </div>
+      </md-card>
     </div>
   </div>
 </div>
-
 

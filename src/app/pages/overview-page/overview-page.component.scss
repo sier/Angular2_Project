@@ -4,18 +4,23 @@
   margin-top: 60px;
   width: auto;
 }
-@media screen and (max-width: 750px) {
-  .container {
+@media screen and (max-width: 750px){
+  .container{
     padding-left: 120px;
     margin-top: 60px;
     width: auto;
   }
 }
 
-.rowsPadding {
+.rowsPadding{
   padding: 20px;
   color:grey;
 }
+p{
+  padding: 5px;
+  color:grey;
+}
+
 select {
   border-color: #FFFFFF;
   border-radius: 5px;
@@ -30,45 +35,26 @@ select {
   -moz-appearance: none;
   padding: 5px;
 }
-.setColor {
+.setColor{
   color: #ED6C44;
   font-weight:bold;
 
 }
-.unSetColor {
+.unSetColor{
   color: grey;
 
 }
 
-
-/* Error skit, deprecated.
-.md-tab {
-  color: green;
-  background-color: green;
-}
-md-tab > md-tab-label-wrapper {
-  background-color: #f00 !important;
-}
-:host .md-tab-header { background: red; }
-*/
-
-
-
 //funkar ej waaaaat
-.mat-ripple {
+.mat-ripple{
   background-color: #ED6C44 !important;
-
 }
-#mat-tab-label {
+.mat-tab-label{
   background-color: #ED6C44 !important;
+}
+.mat-card{
 
 }
-.mat-card {
-
-}
-label {
+label{
   background-color: green;
 }
-
-// Ej använd
-#tab1 { background-color: red; }
