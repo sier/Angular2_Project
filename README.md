@@ -1,14 +1,21 @@
-# equilab
-Projektarbete Equilab
+# Angular2 AngularFire test project
+A web application in angular2
 
-After downloading/cloning it Change directory and run npm install
+Contains various functions made in AngularFire such as login, create user and loops to retreive nested data from the current logged in user in your Firebase database.
 
-cd equilab
+Theres also an example on an authentication guard which prevents non registered users from accessing restricted pages.
 
-npm install
+See demo at: https://paem.github.io/angular2-project
+
+To login:
+
+Email = test@test.se
+
+Password = password123
 
 
-# Buggar
-OBS!!!
-Kör ej "npm install" efter nedladdning då det kan förstöra design filerna.
-Vet ej hur vi skall komma runt detta än.
+# Pictures
+<p align="center">
+<img src="./images/equilab.PNG">
+<img src="./images/overview.PNG">
+</p>
